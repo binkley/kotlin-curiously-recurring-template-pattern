@@ -6,14 +6,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>hm.binkley</groupId>
-    <artifactId>maven-kotlin-exemplar</artifactId>
+    <artifactId>kotlin-curiously-recurring-template-pattern</artifactId>
     <version>0-SNAPSHOT</version>
 
-    <name>Maven Kotlin exemplar</name>
+    <name>Kotlin curiously recurring template pattern</name>
     <description>
-        Maven default configuration, and various scenarios
+        An example of curiously recurring template pattern in Kotlin
     </description>
-    <url>https://github.com/binkley/maven</url>
+    <url>
+        https://github.com/binkley/kotlin-curiously-recurring-template-pattern
+    </url>
     <licenses>
         <license>
             <name>Public Domain</name>
@@ -23,11 +25,17 @@
     </licenses>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/binkley/maven/issues</url>
+        <url>
+            https://github.com/binkley/kotlin-curiously-recurring-template-pattern/issues
+        </url>
     </issueManagement>
     <scm>
-        <connection>scm:git:git://github.com/binkley/maven</connection>
-        <url>https://github.com/binkley/maven</url>
+        <connection>
+            scm:git:git://github.com/binkley/kotlin-curiously-recurring-template-pattern
+        </connection>
+        <url>
+            https://github.com/binkley/kotlin-curiously-recurring-template-pattern
+        </url>
     </scm>
 
     <properties>
@@ -44,7 +52,7 @@
         <kotlin.version>1.5.0</kotlin.version>
         <ktlint-maven-plugin.version>1.9.0</ktlint-maven-plugin.version>
         <lombok.version>1.18.20</lombok.version>
-        <main.class>hm.binkley.exemplar.kotlin.MainKt</main.class>
+        <main.class>hm.binkley.labs.curious.MainKt</main.class>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -84,18 +92,27 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <!-- TODO: Needed by Kotlin 1.5.0 -->
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-script-runtime</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <defaultGoal>verify</defaultGoal>
-
         <!-- @formatter:off -->
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
@@ -324,7 +341,7 @@
             <!--                    <sourceLinks>-->
             <!--                        <link>-->
             <!--                            <path>${project.basedir}</path>-->
-            <!--                            <url>https://github.com/binkley/maven/blob/master</url>-->
+            <!--                            <url>https://github.com/binkley/kotlin-curiously-recurring-template-pattern/blob/master</url>-->
             <!--                            <lineSuffix>#L</lineSuffix>-->
             <!--                        </link>-->
             <!--                    </sourceLinks>-->
