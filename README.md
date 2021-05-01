@@ -11,9 +11,13 @@
 
 ## Build
 
-Use `./mvnw` (Maven) or `./batect build` (Batect) to build, run tests, and
-create a demo program.  Use `./run.sh` or `./batect run` to run the demo.
+```shell
+$ ./mvnw -C clean verify
+$ ./run.sh  # Try it out
+```
 
 ## Reading
 
-* [_Curiously recurring template pattern_](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern) (Wikipedia)
+* [_Curiously recurring template
+  pattern_](https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern) (
+  Wikipedia)
