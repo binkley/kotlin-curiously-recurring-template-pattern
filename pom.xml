@@ -75,6 +75,7 @@
         <project.build.sourceEncoding>${java.charset}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${java.charset}</project.reporting.outputEncoding>
         <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
+        <system-lambda.version>1.2.0</system-lambda.version>
         <!-- @formatter:on -->
     </properties>
 
@@ -108,6 +109,12 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.stefanbirkner</groupId>
+            <artifactId>system-lambda</artifactId>
+            <version>${system-lambda.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
