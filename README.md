@@ -52,9 +52,9 @@ works.
 
 ### When to use
 
-When you have a base class needing to return a subtype, and you have
-refactored the common code from the subtypes into the base type. This is a
-common case for fluent APIs, but turns up elsewhere as well.
+Use this pattern when you have a base class needing to return a subtype, and
+you have refactored the common code from the subtypes into the base type. This
+is common in fluent APIs, and turns up elsewhere as well.
 
 ### Notes
 
