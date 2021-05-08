@@ -30,17 +30,13 @@ What this means for Kotlin is a pattern like:
 
 ```kotlin
 abstract class Base<B : Base<B>> { /* ... */ }
-```
-
-and derived types would use this as:
-
-```kotlin
 class Derived : Base<Derived>() { /* ... */ }
 ```
 
 or in a more complex type hierarchy:
 
 ```kotlin
+abstract class Base<B : Base<B>> { /* ... */ }
 open class Middle<M : Middle<M>> : Base<M> { /* ... */ }
 class Derived : Middle<Derived>() { /* ... */ }
 ```
