@@ -32,10 +32,35 @@ What this means for Kotlin is a pattern like:
 abstract class Base<B : Base<B>> { /* ... */ }
 ```
 
+and derived types would use this as:
+
+```kotlin
+class Derived : Base<Derived>() { /* ... */ }
+```
+
+or in a more complex type hierarchy:
+
+```kotlin
+open class Middle<M : Middle<M>> : Base<M> { /* ... */ }
+class Derived : Middle<Derived>() { /* ... */ }
+```
+
 You can see in the example code that `Base` (called
 [`Curious`](./src/main/kotlin/hm/binkley/labs/curious/Main.kt))
 depends on subtypes expressed at generic parameter `B`. This is how CRTP
 works.
+
+Note this property in the base:
+
+```kotlin
+@Suppress("UNCHECKED_CAST")
+protected val self: B
+    get() = this as B
+```
+
+This approach is helpful to avoid `this as X` casts sprinkled through the base
+class and any needed uses in derived classes. Simply returning
+`this` refers to the base type rather than the needed derived type.
 
 ## Reading
 
