@@ -50,6 +50,14 @@ You can see in the example code that `Base` (called
 depends on subtypes expressed at generic parameter `B`. This is how CRTP
 works.
 
+### When to use
+
+When you have a base class needing to return a subtype, and you have
+refactored the common code from the subtypes into the base type. This is a
+common case for fluent APIs, but turns up elsewhere as well.
+
+### Notes
+
 Note this property in the base:
 
 ```kotlin
