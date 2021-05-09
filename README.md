@@ -50,7 +50,27 @@ works.
 
 Use this pattern when you have a base class needing to return a subtype, and
 you have refactored the common code from the subtypes into the base type. This
-is common in fluent APIs, and turns up elsewhere as well.
+is common in fluent APIs, and turns up elsewhere as well.  An example:
+
+```kotlin
+interface Base<B: Base<B>> {
+    @Suppress("UNCHECKED_CAST")
+    val self: B get() = this as B
+}
+
+open class Middle<M: Middle<M>> : Base<M> {
+    fun middleExample() : M = self
+}
+
+class Derived : Middle<Derived> {
+    fun derivedExample() = this
+}
+
+fun main() {
+    // That it compiles is proof
+    Derived().middleExample().derivedExample()
+}
+```
 
 ### Notes
 
