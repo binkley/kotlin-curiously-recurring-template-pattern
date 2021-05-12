@@ -21,8 +21,19 @@ HOOK VALUE -> 1
 HOOK VALUE -> 2
 NANCY IS FANCY!
 HOOK VALUE -> 2
+== NOW, COMPANION'S TURN
+IN COMPANION BASE --> 29
+IN COMPANION DERIVED --> 29
+IN COMPANION BASE --> 29
 """.trimStart(),
             out
         )
+    }
+
+    @Test
+    fun `should be a plain object`() {
+        // Plain object even though Companion is curiously recurring
+        // Just compiling proves the point
+        Curiouser()
     }
 }
